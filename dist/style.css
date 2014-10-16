@@ -8,6 +8,14 @@
 	margin: 2em auto;
 	position: relative;
 }
+/* 
+.navigation {
+	max-width: 100%;
+	min-height: 50px;                        /* adding navigation on top. 
+	padding-bottom: 1em;
+	border-bottom: 1px solid #888;
+	background-color: lightgrey;
+}*/
 
 .left-column {
 	width: 15em;
@@ -15,16 +23,34 @@
 	left:0;
 	top:0;
 	min-height: 500px;
-	padding-right: 1em;
+	padding-right: 2em;
 	border-right: 1px solid #888;
 }
 
 .right-column {
 	margin-left: 15em;
 	min-height: 500px;
-	padding-left: 1em;
+	padding-left: 1em;/*added a little padding*/
 }
 
 img {
 	max-width: 100%;
 }
+
+/*taking off bullets*/
+ul li {
+	list-style-type: none;
+	margin-left: -40px;
+	                  /*floating the li's left*/
+}
+
+.left-column ul ul li{
+	float: left;
+	padding-left: 2em;
+}
+
+
+
+
+
+

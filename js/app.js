@@ -24,6 +24,13 @@ RepoMan.prototype.loadTemplateFile = function(templateName) {
     });
 };
 
+/*
+RepoMan.prototype.putNavDataOnPage = function(navHtml, nav) {
+    var d = new Date(nav.created_at);
+    nav.joined = ["Joined on ", d.toDateString()].join("");                      //Nav template
+    document.querySelector('.navigation').innerHTML = _.template(navHtml, nav);
+};     */
+
 RepoMan.prototype.putProfileDataOnPage = function(profileHtml, profile) {
     var d = new Date(profile.created_at);
     profile.joined = ["Joined on ", d.toDateString()].join("");
@@ -31,7 +38,7 @@ RepoMan.prototype.putProfileDataOnPage = function(profileHtml, profile) {
 };
 
 RepoMan.prototype.putRepoDataOnPage = function(repoHtml, repos) {
-	console.log(repos)
+	console.log(repos);
     document.querySelector('.right-column').innerHTML =
         repos.sort(function(a, b) {
             var firstDate = new Date(a.updated_at),
@@ -41,20 +48,22 @@ RepoMan.prototype.putRepoDataOnPage = function(repoHtml, repos) {
             var d = new Date(obj.updated_at);
             obj.updated = ["Updated on ", d.toDateString()].join("");
             return _.template(repoHtml, obj);
-        }).join("")
+        }).join("");
 };
 
 RepoMan.prototype.init = function() {
     var self = this;
     // start doing shit...
     $.when(
-        this.getUserInfo(),
+        this.getUserInfo(),        // Add this.getNavInfo(),  ????????
         this.getRepoInfo(),
+       // this.loadTemplateFile('nav'),
         this.loadTemplateFile('profile'),
         this.loadTemplateFile('repo')
-    ).then(function(profile, repos, profileHtml, repoHtml) {
-        self.putProfileDataOnPage(profileHtml, profile)
-        self.putRepoDataOnPage(repoHtml, repos)
+    ).then(function(/*nav, */profile, repos, /*navHtml,*/ profileHtml, repoHtml) {
+       // self.putNavDataOnPage(navHtml, nav)
+        self.putProfileDataOnPage(profileHtml, profile);
+        self.putRepoDataOnPage(repoHtml, repos);
     })
 };
 
