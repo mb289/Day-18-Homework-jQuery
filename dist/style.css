@@ -1,0 +1,30 @@
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 2em auto;
+	position: relative;
+}
+
+.left-column {
+	width: 15em;
+	position: absolute;
+	left:0;
+	top:0;
+	min-height: 500px;
+	padding-right: 1em;
+	border-right: 1px solid #888;
+}
+
+.right-column {
+	margin-left: 15em;
+	min-height: 500px;
+	padding-left: 1em;
+}
+
+img {
+	max-width: 100%;
+}
